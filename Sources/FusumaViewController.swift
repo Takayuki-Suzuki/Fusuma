@@ -56,6 +56,10 @@ public extension FusumaDelegate {
 public var fusumaBaseTintColor   = UIColor.hex("#c9c7c8", alpha: 1.0)
 public var fusumaTintColor       = UIColor.hex("#424141", alpha: 1.0)
 public var fusumaBackgroundColor = UIColor.hex("#FCFCFC", alpha: 1.0)
+public var fusumaMenuViewColor   = UIColor.hex("#c9c7c8", alpha: 1.0)
+public var fusumaButtonColor       = UIColor.hex("#424141", alpha: 1.0)
+public var fusumaButtonTintColor = UIColor.hex("#FCFCFC", alpha: 1.0)
+public var fusumaBorderColor = UIColor.black
 
 public var fusumaCheckImage: UIImage?
 public var fusumaCloseImage: UIImage?
@@ -151,11 +155,14 @@ public struct ImageMetadata {
         videoView.delegate  = self
         
         libraryButton.setTitle(fusumaCameraRollTitle, for: .normal)
+        libraryButton.backgroundColor(fusumaButtonColor)
         cameraButton.setTitle(fusumaCameraTitle, for: .normal)
+        cameraButton.backgroundColor(fusumaButtonColor)
         videoButton.setTitle(fusumaVideoTitle, for: .normal)
+        videoButton.backgroundColor(fusumaButtonColor)
 
-        menuView.backgroundColor = fusumaBackgroundColor
-        menuView.addBottomBorder(UIColor.black, width: 1.0)
+        menuView.backgroundColor = fusumaMenuViewColor
+        menuView.addBottomBorder(fusumaBorderColor, width: 1.0)
 
         albumView.allowMultipleSelection = allowMultipleSelection
         
