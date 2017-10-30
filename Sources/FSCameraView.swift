@@ -41,6 +41,9 @@ final class FSCameraView: UIView, UIGestureRecognizerDelegate {
         }
         
         self.backgroundColor = fusumaBackgroundColor
+	flashButton.tintColor = fusumaButtonTintColor
+        flipButton.tintColor  = fusumaButtonTintColor
+        shotButton.tintColor  = fusumaButtonTintColor
         
         self.hidden = false
         
