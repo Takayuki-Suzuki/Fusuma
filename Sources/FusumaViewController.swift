@@ -200,7 +200,7 @@ public struct ImageMetadata {
             fatalError("the variable of availableModes should have unique elements.")
         }
         
-        changeMode(availableModes[0], isForced: true)
+        changeMode(availableModes[1], isForced: true)
         
         var sortedButtons = [UIButton]()
         
