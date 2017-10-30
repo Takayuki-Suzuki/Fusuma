@@ -155,11 +155,11 @@ public struct ImageMetadata {
         videoView.delegate  = self
         
         libraryButton.setTitle(fusumaCameraRollTitle, for: .normal)
-        libraryButton.backgroundColor(fusumaButtonColor)
+        libraryButton.backgroundColor = fusumaButtonColor
         cameraButton.setTitle(fusumaCameraTitle, for: .normal)
-        cameraButton.backgroundColor(fusumaButtonColor)
+        cameraButton.backgroundColor = fusumaButtonColor
         videoButton.setTitle(fusumaVideoTitle, for: .normal)
-        videoButton.backgroundColor(fusumaButtonColor)
+        videoButton.backgroundColor = fusumaButtonColor
 
         menuView.backgroundColor = fusumaMenuViewColor
         menuView.addBottomBorder(fusumaBorderColor, width: 1.0)
