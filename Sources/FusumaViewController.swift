@@ -20,6 +20,10 @@ import UIKit
 public var fusumaBaseTintColor       = UIColor.hex("#FFFFFF", alpha: 1.0)
 public var fusumaTintColor       = UIColor.hex("#009688", alpha: 1.0)
 public var fusumaBackgroundColor = UIColor.hex("#212121", alpha: 1.0)
+public var fusumaMenuViewColor   = UIColor.hex("#c9c7c8", alpha: 1.0)
+public var fusumaButtonColor       = UIColor.hex("#424141", alpha: 1.0)
+public var fusumaButtonTintColor = UIColor.hex("#FCFCFC", alpha: 1.0)
+public var fusumaBorderColor = UIColor.black
 
 
 public enum FusumaMode {
@@ -73,8 +77,8 @@ public enum FusumaModeOrder {
         cameraView.delegate = self
         albumView.delegate  = self
 
-        menuView.backgroundColor = fusumaBackgroundColor
-        menuView.addBottomBorder(UIColor.blackColor(), width: 1.0)
+        menuView.backgroundColor = fusumaMenuViewColor
+        menuView.addBottomBorder(fusumaBorderColor, width: 1.0)
         
         let bundle = NSBundle(forClass: self.classForCoder)
         
@@ -102,6 +106,8 @@ public enum FusumaModeOrder {
 		
         cameraButton.adjustsImageWhenHighlighted  = false
         libraryButton.adjustsImageWhenHighlighted = false
+	cameraButton.backgroundColor = fusumaButtonColor
+	libraryButton.backgroundColor = fusumaButtonColor
         cameraButton.clipsToBounds  = true
         libraryButton.clipsToBounds = true
 
