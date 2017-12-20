@@ -15,7 +15,7 @@ final class FSAlbumViewCell: UICollectionViewCell {
     
     var selectedLayer = CALayer()
     
-    var image: UIImage? {
+    @objc var image: UIImage? {
         
         didSet {
             

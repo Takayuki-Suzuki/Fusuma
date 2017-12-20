@@ -26,18 +26,18 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var collectionViewConstraintHeight: NSLayoutConstraint!
     @IBOutlet weak var imageCropViewConstraintTop: NSLayoutConstraint!
 
-    weak var delegate: FSAlbumViewDelegate? = nil
-    var allowMultipleSelection = false
+    @objc weak var delegate: FSAlbumViewDelegate? = nil
+    @objc var allowMultipleSelection = false
     
     fileprivate var images: PHFetchResult<PHAsset>!
     fileprivate var imageManager: PHCachingImageManager?
     fileprivate var previousPreheatRect: CGRect = .zero
     fileprivate let cellSize = CGSize(width: 100, height: 100)
     
-    var phAsset: PHAsset!
+    @objc var phAsset: PHAsset!
     
-    var selectedImages: [UIImage] = []
-    var selectedAssets: [PHAsset] = []
+    @objc var selectedImages: [UIImage] = []
+    @objc var selectedAssets: [PHAsset] = []
     
     // Variables for calculating the position
     enum Direction {
@@ -57,12 +57,12 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
     private var dragStartPos: CGPoint = CGPoint.zero
     private let dragDiff: CGFloat     = 20.0
     
-    static func instance() -> FSAlbumView {
+    @objc static func instance() -> FSAlbumView {
         
         return UINib(nibName: "FSAlbumView", bundle: Bundle(for: self.classForCoder())).instantiate(withOwner: self, options: nil)[0] as! FSAlbumView
     }
     
-    func initialize() {
+    @objc func initialize() {
         
         if images != nil { return }
 		
@@ -134,7 +134,7 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
         return true
     }
     
-    func panned(_ sender: UITapGestureRecognizer) {
+    @objc func panned(_ sender: UITapGestureRecognizer) {
         
         if sender.state == UIGestureRecognizerState.began {
             
@@ -259,7 +259,7 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     
     // MARK: - UICollectionViewDelegate Protocol
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    @objc func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FSAlbumViewCell", for: indexPath) as! FSAlbumViewCell
         
@@ -324,7 +324,7 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
         
         let asset = self.images[(indexPath as NSIndexPath).item]
         
-        let selectedAsset = selectedAssets.enumerated().filter ({ $1 == asset }).first
+        let selectedAsset = selectedAssets.enumerated().filter ({ $0.1 == asset }).first
         
         if let selected = selectedAsset {
             
@@ -399,7 +399,7 @@ final class FSAlbumView: UIView, UICollectionViewDataSource, UICollectionViewDel
 
 internal extension UICollectionView {
     
-    func aapl_indexPathsForElementsInRect(_ rect: CGRect) -> [IndexPath] {
+    @objc func aapl_indexPathsForElementsInRect(_ rect: CGRect) -> [IndexPath] {
         
         let allLayoutAttributes = self.collectionViewLayout.layoutAttributesForElements(in: rect)
         if (allLayoutAttributes?.count ?? 0) == 0 {return []}
